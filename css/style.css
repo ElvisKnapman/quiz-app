@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600');
+
+html {
+    margin: 0;
+    padding: 0;
+    font: 20px 'Open Sans', sans-serif;
+    line-height: 140%;
+}
+
+.wrapper {
+    width: 80%;
+    margin: 10px auto 0 auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.25);
+}
+
+#question-number {
+    color: rgb(180, 180, 180);
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+#show-question {
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+#options {
+    font-size: .85rem;
+}
