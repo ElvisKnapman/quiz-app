@@ -1,3 +1,5 @@
+'use strict';
+
 const quiz = [
     {
         question: "Who holds the record for most career points scored in the NHL?",
