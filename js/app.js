@@ -4,7 +4,8 @@ const submitButton = document.getElementById('submit');
 // const previousButton = document.getElementById('previous-question');
 const questionDiv = document.getElementById('show-question');
 const questionNumDiv = document.getElementById('question-number');
-const divOptions = document.getElementById('options');
+const optionsDiv = document.getElementById('options');
+const resultDiv = document.getElementById('results');
 
 
 submitButton.addEventListener('click', event => {
@@ -21,13 +22,11 @@ submitButton.addEventListener('click', event => {
         alert('Please make a valid selection');
     }
 
-    // if this is the last question, disable submit button after submitting answer 
+    // if this is the last question, disable submit button after submitting answer and show results
     if (player.quizDone) {
         submitButton.disabled = true;
+        showResults();
     }
-
-    console.log(player.questionNum);
-    console.log(`is quiz done? ${player.quizDone}`);
 });
 
 // previousButton.addEventListener('click', event => {
