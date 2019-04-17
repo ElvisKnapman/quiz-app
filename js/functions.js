@@ -25,10 +25,12 @@ function displayQuestion() {
     questionDiv.innerHTML = quiz[player.questionNum].question;
 }
 
+
 function displayQuestionNumber() {
     questionNumDiv.innerHTML = '';
     questionNumDiv.innerHTML = `Question #${player.questionNum + 1}`;
 }
+
 
 // loop through array and display options for current question
 function displayOptions() {
@@ -40,12 +42,51 @@ function displayOptions() {
         output += `<div class="question-option"><p><input type="radio" name="choice" value="${i}"> ${quiz[player.questionNum].options[i]}`;
     }
 
-    divOptions.innerHTML = output;
+    optionsDiv.innerHTML = output;
 }
+
 
 function addPlayerChoice(choice) {
     // add player answer to their chosen answers array
-    player.answers.push(choice);
+    player.answers.push(Number(choice));
+}
+
+
+// clear all divs
+function removeDivs() {
+    questionDiv.remove();
+    optionsDiv.remove();
+    submitButton.remove();
+}
+
+
+function calcResults() {
+    let result = 0;
+
+    for (let i = 0; i < quiz.length; i++) {
+        if (quiz[i].answer === player.answers[i]) {
+            result++;
+        }
+    }
+    return result;
+}
+
+
+function showResults() {
+    removeDivs();
+    const score = calcResults();
+    const percent = Math.floor((score / quiz.length) * 100)
+    let output = '';
+
+    questionNumDiv.innerHTML = `Results`;
+    output += `You answered ${score} out of ${quiz.length} questions correctly.`;
+
+    if (percent === 100) {
+        output += ` Congratulations you got ${percent}%. A perfect score!`;
+    } else if (percent === 0) {
+        output += ` You can do better than that!`;
+    }
+    resultDiv.innerHTML = output;
 }
 
 // function togglePreviousButton() {
